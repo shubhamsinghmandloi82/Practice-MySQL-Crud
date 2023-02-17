@@ -1,0 +1,22 @@
+
+<html>
+  <head></head>
+  
+  <body>
+    <ul id="message"></ul>
+    <script src="/socket.io/socket.io.js"></script>
+  <script>
+      var socket = io('http://localhost:3000');
+  
+      socket.on('message', function(msg){
+        console.log(msg);
+        var node = document.createElement("LI");
+        var textnode = document.createTextNode(JSON.stringify(msg));
+        node.appendChild(textnode);
+        document.getElementById("message").appendChild(node);
+      });
+    </script>
+    <h>Hey welcome to my chat page</h>
+  </body>
+  </html>
+
